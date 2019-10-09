@@ -18,6 +18,11 @@ namespace WebAddressbookTests
            
             {
             }
+
+        public LoginHelper(IWebDriver driver) : base(driver)
+        {
+        }
+
         public void Login(AccountData account)
         {
 

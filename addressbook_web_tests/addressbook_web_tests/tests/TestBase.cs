@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 
 
+
+
 namespace WebAddressbookTests
 {
     public class TestBase
     {
 
         protected ApplicationManager app;
+
+
 
         [SetUp]
         public void SetupTest()
@@ -20,15 +24,19 @@ namespace WebAddressbookTests
 
             app.Navigator.GoToHomePage();
             app.Auth.Login(new AccountData("admin", "secret"));
+
+            ContactData group = new ContactData("Firstname");
+            group.Middlename = "Middlename";
+            group.Lastname = "Lastname";
+                       
+            //contactHelper = new LoginHelper(driver);
         }
 
         [TearDown]
-        public void TeardownTest()
+        protected void TeardownTest()
         {
 
             app.Stop();
         }
-
-     
     }
 }

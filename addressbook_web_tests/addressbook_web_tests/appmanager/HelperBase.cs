@@ -18,6 +18,11 @@ namespace WebAddressbookTests
         {
             this.manager = manager;
             this.driver = manager.Driver;
+                    }
+
+        public HelperBase(IWebDriver driver)
+        {
+            this.driver = driver;
         }
     }
 }

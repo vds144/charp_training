@@ -1,44 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System.Threading;
+using NUnit.Framework;
 
-namespace AccountCreationTests
+
+namespace WebAddressbookTests
 {
-    class MyProgectAccountData
+
+    [TestFixture]
+    public class AccountCreationTests : TestBase
     {
-        private string username;
-        private string password;
+      
 
-        public MyProgectAccountData(string username, string password)
+        [Test]
+        public void AccountCreationTest()
         {
-            this.username = username;
-            this.password = password;
+            
+            ContactData group = new ContactData("Firstname");
+            group.Middlename = "Middlename";
+            group.Lastname = "Lastname";
+            app.Contact
+                .AddnewAccount(group)
+                .CreateAccount();
+            
         }
 
-        public string Username
-        {
-            get
-            {
-                return username;
-            }
-            set
-            {
-                username = value;
-            }
-        }
-
-        public string Password
-        {
-            get
-            {
-                return password;
-            }
-            set
-            {
-                password = value;
-            }
-        }
     }
 }
